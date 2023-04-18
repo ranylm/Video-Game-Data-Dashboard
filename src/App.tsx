@@ -4,7 +4,7 @@ import SearchPage from "./components/SearchPage/SearchPage";
 
 function App() {
   return (
-    <div className="w-full flex justify-center bg-slate-100">
+    <div className="w-full flex justify-center bg-slate-100 min-h-screen">
       <div className="App flex justify-center w-5/6 my-24">
         <NavBar />
         <div className="mainContent w-5/6">
