@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+button,
+p {
+  all: unset;
+}
+
+.Arrow {
+  position: relative;
+  top: 30%;
+  background-color: white;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  border-top-left-radius: 2px;
+}
