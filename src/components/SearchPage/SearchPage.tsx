@@ -1,5 +1,5 @@
 import React, { ReactEventHandler, useState } from "react";
-import GameCard from "./GameCard";
+import GameCard, { Props as gameprops } from "./GameCard";
 
 type Props = {};
 
@@ -30,7 +30,7 @@ export default function SearchPage({}: Props) {
       />
       <div className="container flex flex-row flex-wrap justify-around p-4">
         {gameData.map((e) => {
-          return <GameCard {...e} />;
+          return <GameCard {...(e as gameprops)} />;
         })}
       </div>
     </div>

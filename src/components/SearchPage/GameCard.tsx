@@ -1,6 +1,6 @@
 import React from "react";
 
-type Props = {
+export type Props = {
   thumb: string;
   external: string;
   gameID: number;
