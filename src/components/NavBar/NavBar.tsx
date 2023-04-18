@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
 
 type Props = {};
 
 export default function NavBar({}: Props) {
+  const [listUpdates, setListUpdate] = useState(0);
+  const updates = useAppSelector((state) => state.watchList.updates);
+
+  useEffect(() => {
+    setListUpdate(updates);
+  }, [updates]);
+
   return (
     <div>
       <NavigationMenu.Root
@@ -22,9 +30,21 @@ export default function NavBar({}: Props) {
               <NavigationMenu.Trigger>Search</NavigationMenu.Trigger>
             </NavigationMenu.Item>
           </Link>
-          <NavigationMenu.Item className="m-8 font-mono text-xl tracking-wide font-semibold text-sky-100 hover:text-orange-500">
-            <NavigationMenu.Trigger>Placeholder2</NavigationMenu.Trigger>
-          </NavigationMenu.Item>
+          <Link to="/lists">
+            <NavigationMenu.Item className="m-8 font-mono text-xl tracking-wide font-semibold text-sky-100 hover:text-orange-500">
+              <NavigationMenu.Trigger>
+                {" "}
+                {listUpdates ? (
+                  <div className="relative float-right top-0 right-0 flex h-5 w-5 bg-orange-500 rounded-full justify-around">
+                    <span className="-my-1 text-base font-mono text-slate-50 font-bold">
+                      {listUpdates}
+                    </span>
+                  </div>
+                ) : undefined}
+                List
+              </NavigationMenu.Trigger>
+            </NavigationMenu.Item>
+          </Link>
           <NavigationMenu.Item className="m-8 font-mono text-xl tracking-wide font-semibold text-sky-100 hover:text-orange-500">
             <NavigationMenu.Trigger>Placeholder3</NavigationMenu.Trigger>
           </NavigationMenu.Item>
