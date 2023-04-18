@@ -9,7 +9,7 @@ const initialState: FavoriteState = {
   favoriteList: [],
 };
 
-export const counterSlice = createSlice({
+export const watchListSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
@@ -23,6 +23,6 @@ export const counterSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addGame, removeGame } = counterSlice.actions;
+export const { addGame, removeGame } = watchListSlice.actions;
 
-export default counterSlice.reducer;
+export default watchListSlice.reducer;

@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
+import watchingSlice from "./reducers/watching.slice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: { watchList: watchingSlice },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
