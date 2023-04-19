@@ -30,6 +30,8 @@ export default function GameCard({
               external={external}
               cheapestDealID={cheapestDealID}
               gameID={gameID}
+              thumb={thumb}
+              cheapest={cheapest}
             />
           </div>
         </div>

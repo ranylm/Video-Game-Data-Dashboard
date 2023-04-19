@@ -17,7 +17,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <Provider store={store}>
     <DndProvider backend={HTML5Backend}>
       <Toast>
-        <BrowserRouter>
+        <BrowserRouter
+        // basename="/MOD2-React-App/"
+        >
           <App />
         </BrowserRouter>
       </Toast>

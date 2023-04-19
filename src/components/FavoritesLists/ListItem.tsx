@@ -1,35 +1,53 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDrag } from "react-dnd";
+import { useDrop } from "react-dnd";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { gameType, swapItems } from "../../redux/reducers/watching.slice";
 
-import { gameType } from "../../redux/reducers/watching.slice";
-
-type Props = gameType & { index: number };
+type Props = gameType;
 
 export const ItemTypes = {
   LIST_ITEM: "listItem",
 };
 
-export default function ListItem({
-  name,
-  cheapestDealID,
-  gameID,
-  index,
-}: Props) {
+export default function ListItem({ name, cheapestDealID, gameID, id }: Props) {
   //React DnD Code
+  const dispatch = useAppDispatch();
+
+  useEffect(() => console.log("did rerender"));
+
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemTypes.LIST_ITEM,
-    item: { index },
+    item: { id },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
   }));
 
+  const [{ isOver }, drop] = useDrop(
+    () => ({
+      accept: ItemTypes.LIST_ITEM,
+      drop: (item: { id: number }) => {
+        // console.log("index is: ", item);
+        // console.log("swapping");
+        dispatch(swapItems([item.id, id]));
+      },
+      collect: (monitor) => ({
+        isOver: !!monitor.isOver(),
+      }),
+    }),
+    []
+  );
+
   return (
     <div
       className=" m-2 flex flex-row h-12 w-full bg-white shadow-sm"
-      ref={drag}
+      ref={(el) => {
+        drop(el);
+        drag(el);
+      }}
       style={{
-        opacity: isDragging ? 0.5 : 1,
+        opacity: isDragging ? 0.6 : 1,
         cursor: "move",
       }}
     >
