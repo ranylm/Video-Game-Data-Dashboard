@@ -109,3 +109,17 @@ p {
 .ToastAction {
   grid-area: action;
 }
+
+.scrollingBanner {
+  animation-iteration-count: infinite;
+  animation: scrolling var(--timeSlide) linear infinite;
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(var(--percentSlide));
+  }
+}

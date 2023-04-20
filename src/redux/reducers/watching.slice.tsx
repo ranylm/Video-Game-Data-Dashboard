@@ -12,17 +12,18 @@ export type gameType = {
   gameID: number;
   cheapestDealID: string;
   name: string;
+  thumb: string;
 };
 
 type inputGameType = Omit<gameType, "id">;
 const initialState: FavoriteState = {
   favoriteList: [
-    { id: 0, name: "test", gameID: 1235, cheapestDealID: "1" },
-    { id: 1, name: "test2", gameID: 24576, cheapestDealID: "2" },
-    { id: 2, name: "test3", gameID: 3867, cheapestDealID: "3" },
+    // { id: 0, name: "test", gameID: 1235, cheapestDealID: "1" },
+    // { id: 1, name: "test2", gameID: 24576, cheapestDealID: "2" },
+    // { id: 2, name: "test3", gameID: 3867, cheapestDealID: "3" },
   ],
   updates: 0,
-  idAssigner: 3,
+  idAssigner: 0,
 };
 
 export const watchListSlice = createSlice({

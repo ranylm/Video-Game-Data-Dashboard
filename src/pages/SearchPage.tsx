@@ -1,7 +1,11 @@
 import React, { ReactEventHandler, useState } from "react";
-import GameCard, { Props as gameprops } from "./GameCard";
-import { useAppSelector, useAppDispatch } from "../../redux/hooks";
-import { setSearchResults } from "../../redux/reducers/searchResult.slice";
+import GameCard, {
+  Props as gameprops,
+} from "../components/SearchPage/GameCard";
+import { useAppSelector, useAppDispatch } from "../redux/hooks";
+import { setSearchResults } from "../redux/reducers/searchResult.slice";
+
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 type Props = {};
 
@@ -11,6 +15,8 @@ export default function SearchPage({}: Props) {
   const gameData = useAppSelector(
     (state) => state.searchResults.searchResultsList
   );
+
+  const [parent, _enableAnimations] = useAutoAnimate(/* optional config */);
 
   const handleEnter = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key == "Enter") {
@@ -35,7 +41,10 @@ export default function SearchPage({}: Props) {
         placeholder="What game are your looking for?"
         className="h-8 m-8 w-4/6 rounded-md border border-gray-400 bg-transparent placeholder:-mb-14 placeholder:text-center placeholder:text-neutral-400"
       />
-      <div className="container flex flex-row flex-wrap justify-around p-4">
+      <div
+        ref={parent}
+        className="container flex flex-row flex-wrap justify-around p-4"
+      >
         {gameData.map((e) => {
           return <GameCard {...(e as gameprops)} />;
         })}

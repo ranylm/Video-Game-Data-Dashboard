@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import ListItem from "./ListItem";
-import { gameType, clearUpdates } from "../../redux/reducers/watching.slice";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import ListItem from "../components/FavoritesLists/ListItem";
+import { gameType, clearUpdates } from "../redux/reducers/watching.slice";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 type Props = {};
 
@@ -20,7 +20,10 @@ export default function FavoritesLists({}: Props) {
       <h1 className="text-5xl font-semibold text-slate-700 font-sans tracking-tighter my-4">
         Favorites
       </h1>
-      <div ref={parent} className="FavoriteListContainer flex flex-col">
+      <div
+        ref={parent}
+        className="FavoriteListContainer flex flex-row flex-wrap w-11/12 justify-center"
+      >
         {watchList.map((e, idx) => (
           // <ListItemContainer index={idx}>
           <ListItem key={e.id} {...(e as gameType)} />

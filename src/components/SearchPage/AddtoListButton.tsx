@@ -15,6 +15,7 @@ export default function AddtoListButton({
   external,
   cheapestDealID,
   gameID,
+  thumb,
 }: Props) {
   const [open, setOpen] = React.useState(false);
   const timerRef = React.useRef(0);
@@ -23,13 +24,14 @@ export default function AddtoListButton({
   return (
     <>
       <button
-        className="Button large violet"
+        className="Button large violet m-auto text-2xl tracking-wide cursor-pointer"
         onClick={() => {
           dispatch(
             addGame({
               name: external,
               cheapestDealID: cheapestDealID,
               gameID: gameID,
+              thumb: thumb,
             })
           );
           setOpen(false);
@@ -39,7 +41,7 @@ export default function AddtoListButton({
           }, 100);
         }}
       >
-        Add to calendar
+        Add to Favorites List
       </button>
 
       <Toast.Root className="ToastRoot" open={open} onOpenChange={setOpen}>
@@ -60,6 +62,7 @@ export default function AddtoListButton({
                   name: external,
                   cheapestDealID: cheapestDealID,
                   gameID: gameID,
+                  thumb: thumb,
                 })
               );
             }}
