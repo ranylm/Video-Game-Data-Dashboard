@@ -6,6 +6,6 @@ export default defineConfig({
   // base:"/MOD2-React-App/",
   plugins: [react()],
   build: {
-    outDir: './docs'
+    outDir: './dist'
   }
 })
