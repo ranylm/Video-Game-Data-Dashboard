@@ -20,10 +20,16 @@ const placeholder = {
     url: "https://www.windowscentral.com",
   },
 };
+type ArticleList = {
+  articles?: {}[];
+  data?: {}[];
+  results?: {}[];
+};
 
 const placeholder2 = {};
 export default function ArticleList({ url, double }: Props) {
-  const [articleList, setArticleList] = useState();
+  const [articleList, setArticleList]: [ArticleList | undefined, Function] =
+    useState();
 
   const [parent, _enableAnimations] = useAutoAnimate(/* optional config */);
   async function getData() {

@@ -4,18 +4,18 @@ import React from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 type Props = {
-  title: string;
+  title?: string;
   author?: string;
-  description: string;
-  content: string;
-  url: string;
+  description?: string;
+  content?: string;
+  url?: string;
   image?: string | undefined;
   urlToImage?: string | undefined;
   image_url?: string | undefined;
   link?: string | undefined;
-  double: boolean;
+  double?: boolean | undefined;
   //publishedAt: string;
-  source: {
+  source?: {
     name: string;
     //url: string;
   };
