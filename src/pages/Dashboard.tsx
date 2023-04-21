@@ -25,7 +25,7 @@ export default function Dashboard({}: Props) {
       <main className="flex flex-row">
         <ArticleList
           double={true}
-          //CORSed
+          //CORS not allowed maybe?
           // url={`https://newsapi.org/v2/everything?q=nintendo&apiKey=${
           //   import.meta.env.VITE_NEWS_API
           // }&language=en`}

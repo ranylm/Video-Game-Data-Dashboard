@@ -37,7 +37,7 @@ export default function ArticleList({ url, double }: Props) {
     //console.log("GetData");
     const response = await fetch(`${url}`, {
       method: "GET",
-      mode: "no-cors",
+      mode: "cors",
       cache: "force-cache",
     });
     const data = await response.json();
