@@ -6,14 +6,14 @@ THe navigation is handled by using a nav bar made using react-router and a main 
 
 ## Technologies Used
 
-React
-React-Router
-React-Redux
-React-dnd
-Typescript
-@formkit/auto-animate
-Tailwind
-Radix-ui
+- React
+- React-Router
+- React-Redux
+- React-dnd
+- Typescript
+- @formkit/auto-animate
+- Tailwind
+- Radix-ui
 
 ## To be Implemented
 
