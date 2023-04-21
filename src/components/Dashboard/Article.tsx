@@ -36,6 +36,7 @@ export default function Article({
 }: Props) {
   const [parent, _enableAnimations] = useAutoAnimate(/* optional config */);
   //console.log(title, content, url, source, urlToImage || image, author);
+  if (image == "None") image = undefined;
   return (
     <article
       ref={parent}

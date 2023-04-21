@@ -25,9 +25,13 @@ export default function Dashboard({}: Props) {
       <main className="flex flex-row">
         <ArticleList
           double={true}
-          url={`https://newsapi.org/v2/everything?q=nintendo&apiKey=${
-            import.meta.env.VITE_NEWS_API
-          }&language=en`}
+          //CORSed
+          // url={`https://newsapi.org/v2/everything?q=nintendo&apiKey=${
+          //   import.meta.env.VITE_NEWS_API
+          // }&language=en`}
+          url={`https://api.currentsapi.services/v1/search?language=en&category=game&apiKey=${
+            import.meta.env.VITE_CURRENTS_API
+          }`}
         />
 
         <ArticleList

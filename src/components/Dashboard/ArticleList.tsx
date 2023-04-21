@@ -24,6 +24,7 @@ type ArticleList = {
   articles?: {}[];
   data?: {}[];
   results?: {}[];
+  news?: {}[];
 };
 
 const placeholder2 = {};
@@ -57,7 +58,8 @@ export default function ArticleList({ url, double }: Props) {
       {(
         articleList?.articles ||
         articleList?.data ||
-        articleList?.results
+        articleList?.results ||
+        articleList?.news
       )?.map?.((e) => {
         console.log(e);
         return <Article {...e} double={double} />;
