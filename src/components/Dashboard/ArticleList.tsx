@@ -52,8 +52,8 @@ export default function ArticleList({ url, double }: Props) {
     <section
       ref={parent}
       className={`${
-        double ? "w-2/3" : "w-1/3"
-      } bg-neutral-300 rounded-md m-3 flex flex-row flex-wrap shadow-xl h-fit gap-0`}
+        double ? "lg:w-2/3" : "lg:w-1/3"
+      } bg-neutral-300 rounded-md m-3 flex lg:flex-row flex-col flex-wrap shadow-xl h-fit gap-0 sm:w-full`}
     >
       {(
         articleList?.articles ||

@@ -7,6 +7,7 @@ type Props = {};
 
 export default function NavBar({}: Props) {
   const [listUpdates, setListUpdate] = useState(0);
+  const [show, setShow] = useState(true);
   const updates = useAppSelector((state) => state.watchList.updates);
 
   useEffect(() => {
@@ -14,12 +15,16 @@ export default function NavBar({}: Props) {
   }, [updates]);
 
   return (
-    <div>
+    <div className="">
       <NavigationMenu.Root
-        className="NavigationMenuRoot top-36 sticky bg-sky-950 shadow-lg shadow-zinc-400 rounded-lg min-w-min"
+        className="NavigationMenuRoot top-36 sticky bg-sky-950 shadow-lg shadow-zinc-400 rounded-lg min-w-min flex flex-row"
         orientation="vertical"
       >
-        <NavigationMenu.List className="NavigationMenuList py-2 text-center">
+        <NavigationMenu.List
+          className={` ${
+            show ? "block" : "hidden"
+          } NavigationMenuList py-2 text-center`}
+        >
           <Link to="/">
             <NavigationMenu.Item className="m-8 font-mono text-xl tracking-wide font-semibold text-sky-100 hover:text-orange-500">
               <NavigationMenu.Trigger>Dashboard</NavigationMenu.Trigger>
@@ -45,7 +50,7 @@ export default function NavBar({}: Props) {
               </NavigationMenu.Trigger>
             </NavigationMenu.Item>
           </Link>
-          <NavigationMenu.Item className="m-8 font-mono text-xl tracking-wide font-semibold text-sky-100 hover:text-orange-500">
+          {/* <NavigationMenu.Item className="m-8 font-mono text-xl tracking-wide font-semibold text-sky-100 hover:text-orange-500">
             <NavigationMenu.Trigger>Placeholder3</NavigationMenu.Trigger>
           </NavigationMenu.Item>
           <NavigationMenu.Item className="m-8 font-mono text-xl tracking-wide font-semibold text-sky-100 hover:text-orange-500">
@@ -53,11 +58,20 @@ export default function NavBar({}: Props) {
           </NavigationMenu.Item>
           <NavigationMenu.Item className="m-8 font-mono text-xl tracking-wide font-semibold text-sky-100 hover:text-orange-500">
             <NavigationMenu.Trigger>Placeholder 5</NavigationMenu.Trigger>
-          </NavigationMenu.Item>
+          </NavigationMenu.Item> */}
           <NavigationMenu.Indicator className="NavigationMenuIndicator">
             <div className="Arrow"></div>
           </NavigationMenu.Indicator>
         </NavigationMenu.List>
+        <div
+          className="bg:red z-50 text-white peer-active:invisible h-auto m-auto tracking-widest py-4 w-8 font-extrabold"
+          // style={{ writingMode: "vertical-rl" }}
+          onClick={() => {
+            setShow(!show);
+          }}
+        >
+          {show ? "<" : ">"}
+        </div>
       </NavigationMenu.Root>
     </div>
   );

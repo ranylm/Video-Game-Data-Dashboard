@@ -40,7 +40,9 @@ export default function Article({
   return (
     <article
       ref={parent}
-      className={`${double ? "w-1/2" : ""}  rounded-md overflow-hidden p-3`}
+      className={`${
+        double ? "lg:w-1/2" : ""
+      }  rounded-md overflow-hidden p-3 w-full`}
     >
       <div
         className={`relative ${

@@ -22,7 +22,7 @@ export default function Dashboard({}: Props) {
           />
         </div>
       </header>
-      <main className="flex flex-row">
+      <main className="flex lg:flex-row flex-col">
         <ArticleList
           double={true}
           //CORS not allowed maybe?
